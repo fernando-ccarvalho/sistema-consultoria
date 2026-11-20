@@ -155,6 +155,23 @@ def refresh():
         tree.selection_remove(tree.selection())
 
     mostrar()
+
+def preencher_form(event):
+    if not tree.selection():
+            return 
+    limpar_campo()
+    
+    selecionado = tree.selection()[0]
+
+    valores = tree.item(selecionado, 'values')
+
+    e_nome.insert(0, valores[1])
+    e_email.insert(0, valores[2])
+    e_tel.insert(0, valores[3])
+    e_cal.insert(0, valores[4])
+    e_estado.set(valores[5])
+    e_assunto.insert(0, valores[6])
+
 #===============================
 
 ctk.set_appearance_mode('dark')
@@ -310,21 +327,7 @@ for col in tabela_head:
    
     n += 1
 
-def preencher_form(event):
-    if not tree.selection():
-            return 
-    limpar_campo()
-    
-    selecionado = tree.selection()[0]
 
-    valores = tree.item(selecionado, 'values')
-
-    e_nome.insert(0, valores[1])
-    e_email.insert(0, valores[2])
-    e_tel.insert(0, valores[3])
-    e_cal.insert(0, valores[4])
-    e_estado.set(valores[5])
-    e_assunto.insert(0, valores[6])
 
 tree.bind('<ButtonRelease-1>', preencher_form)
 
