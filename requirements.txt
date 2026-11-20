@@ -1,0 +1,4 @@
+customtkinter
+tkcalendar
+mysql-connector-python
+python-dotenv
